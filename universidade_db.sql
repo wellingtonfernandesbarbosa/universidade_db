@@ -39,3 +39,23 @@ CREATE TABLE IF NOT EXISTS matricula (
     CONSTRAINT `FK_curso` FOREIGN KEY (`curso`) 
     REFERENCES `curso` (`id`) ON DELETE RESTRICT
 );
+
+INSERT INTO aluno (id, nome, cpf, endereco)
+VALUES (0, "Wellington", 11111111111, "Rua Acaju, 160");
+
+INSERT INTO professor (id, nome, cpf, salario, carga_horaria)
+VALUES (0, "Vanessa Matias", 99999999999, 5679.87, 30);
+
+INSERT INTO curso (id, curso, professor, cargaHoraria)
+VALUES (0, "Análise e desenvolvimento de Sistemas", 1, 70);
+
+INSERT INTO matricula (id, aluno, curso, dataMatricula)
+VALUES (0, 1, 1, 20210202);
+
+SELECT * FROM aluno;
+
+SELECT * from matricula;
+
+select matricula.id AS Matricula, aluno.nome as Aluno, curso.curso as Curso, matricula.dataMatricula AS Matricula
+from aluno, matricula, curso
+where aluno.id = matricula.aluno;
